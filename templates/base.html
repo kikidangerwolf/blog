@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>k1ki dev</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+<!--<header>-->
+<!--    <h1 class="text1"><a href="{% url 'home' %}" style="text-decoration: none;">k1ki dev</a></h1>-->
+<!--</header>-->
+<div class="card">
+
+    <h4 class="text1"><a href="{% url 'home' %}" style="text-decoration: none;">k1ki dev</a></h4>
+
+    {% if user.is_authenticated %}
+    <h4 class="text1">Xush kelibsiz, {{ user.username }}</h4>
+     <a href="{% url 'logout' %}"><button class="button">Chiqib ketish</button></a>
+        {% else %}
+    <a href="{% url 'login' %}"><button class="button">Saytga kirish</button></a>
+    <a href="{% url 'signup' %}"><button class="button">Ro'yxatdan o'tish</button></a>
+    {% endif %}
+
+</div>
+<div>
+    {% block content %}
+    {% endblock content %}
+</div>
+<br><br>
+<footer>
+    <h4 class="text2"><a href="{% url 'post-new' %}" style="text-decoration: none;">Yangi Post</a></h4>
+</footer>
+
+<style>
+hr { width: 200px; }
+
+.text1 {
+  color: #FFFFFF;
+  float: left;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-left: 20px;
+}
+
+.text2 {
+  color: #424242;
+  margin-left: 20px;
+  font-family: sans-serif;
+}
+
+p { font-family: sans-serif; }
+
+.card {
+        width: 100%;
+        height: 60px;
+        border: none;
+        display: inline-block;
+        padding: 1px;
+        background: #212121;
+}
+
+    .button {
+        width: 200px;
+        height: 50px;
+        margin-left: 10px;
+        margin-top: 4px;
+        float: right;
+        border: none;
+        display: inline-block;
+        background: none;
+        color: white;
+    }
+
+    .button {
+        transition-duration: 0.4s;
+
+    }
+
+    .button:hover {
+        color: #212121;
+        background: #FFFFFF;
+    }
+
+
+
+</style>
+
+</body>
+</html>
