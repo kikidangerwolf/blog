@@ -1,2 +1,2 @@
 django==4.0.3
-whitenoice==6.0.0
+whitenoise==6.0.0
